@@ -1,0 +1,42 @@
+@import "keen-slider/keen-slider.min.css";
+
+.keen-slider {
+  width: 100vw !important;
+}
+
+.keen-slider__slide {
+  min-width: 200px !important;
+  height: 300px !important;
+}
+
+.profile-card {
+  height: 280px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: lightgrey;
+  border-radius: 5px;
+  text-align: center;
+  margin-top: 4px;
+  margin-bottom: 4px;
+
+  img {
+    border-radius: 100%;
+    border: 2px solid #212529;
+    height: 90px;
+    width: 90px;
+  }
+
+  h3 {
+    margin-top: 14px;
+    font-size: 24px;
+    font-weight: 500;
+    color: #212529;
+  }
+
+  p {
+    color: #212529;
+  }
+}
