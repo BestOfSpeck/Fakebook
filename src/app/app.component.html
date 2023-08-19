@@ -1,15 +1,15 @@
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary nav-height">
+<nav class="navbar navbar-expand-lg nav-height">
   <div class="container-fluid">
     <a class="navbar-brand fs-2" href="#">Fakebook</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse" *ngIf="getIsLoggedIn()" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" routerLink="home">Home</a>
         </li>
       </ul>
       <form class="d-flex">
@@ -23,6 +23,4 @@
   </div>
 </nav>
 
-<!-- Carussel section with random user -->
-  <app-random-user-carussel></app-random-user-carussel>
 <router-outlet></router-outlet>

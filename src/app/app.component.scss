@@ -1,5 +1,11 @@
+@import "src/colors.scss";
+
 .nav-height {
   height: 65.99px;
+  background-color: $teal-600;
+  a {
+    color: $gray-100;
+  }
   .nav-img {
     height: 46px;
     width: 46px;

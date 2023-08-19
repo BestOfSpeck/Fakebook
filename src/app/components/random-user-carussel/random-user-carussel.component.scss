@@ -2,14 +2,17 @@
 
 .keen-slider {
   width: 100vw !important;
-}
 
-.keen-slider__slide {
-  min-width: 200px !important;
-  height: 300px !important;
+  .keen-slider__slide {
+    min-width: 200px !important;
+    height: 300px !important;
+    justify-content: space-between !important;
+    padding-top: 24px;
+  }
 }
 
 .profile-card {
+  cursor: pointer;
   height: 280px;
   width: 200px;
   display: flex;
