@@ -6,6 +6,7 @@ import {
   FormControl,
 } from '@angular/forms';
 import { UserDataService } from 'src/app/user-data.service';
+import { gsap } from 'gsap';
 
 @Component({
   selector: 'app-login',
@@ -14,6 +15,8 @@ import { UserDataService } from 'src/app/user-data.service';
 })
 export class LoginComponent {
   signupForm: FormGroup;
+  signInBtnIsActive: boolean = false;
+  message: string = 'Sign up';
 
   constructor(private userDataService: UserDataService) {
     this.signupForm = new FormGroup({
@@ -23,9 +26,41 @@ export class LoginComponent {
   }
 
   onSubmit() {
-    if (this.signupForm.valid) {
-      this.userDataService.login();
-      this.userDataService.getRoute('home');
+    /** check form is correct and check value of signIn button */
+    if (this.signupForm.valid && this.signInBtnIsActive === false) {
+      this.userDataService.login(); /** get value from isLoggedIn variable in userDataService */
+      this.userDataService.getRoute(
+        /** navigate to landin-page component */
+        'home'
+      );
+    } else {
     }
+  }
+
+  async switchToRegister() {
+    const tween = gsap.to('.input-container', {
+      y: 32,
+      duration: 1,
+      ease: 'power3.out',
+    });
+    const tween1 = gsap.to('.input-container', {
+      y: -20,
+      duration: 1,
+      ease: 'power3.out',
+    });
+    if (this.signInBtnIsActive === true) {
+      await tween;
+      this.signInBtnIsActive = false;
+      this.message = 'Sign up';
+      tween.kill;
+    } else {
+      this.signInBtnIsActive = true;
+      await tween1;
+      this.message = 'Sign in';
+    }
+  }
+
+  signInBtn() {
+    return this.signInBtnIsActive;
   }
 }

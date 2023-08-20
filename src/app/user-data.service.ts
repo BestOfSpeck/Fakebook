@@ -20,7 +20,7 @@ export class UserDataService {
     this.isLoggedIn = true;
   }
 
-  getRoute(path:string) {
+  getRoute(path: string) {
     this.router.navigate([path]);
   }
 }
