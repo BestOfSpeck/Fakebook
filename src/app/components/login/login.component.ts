@@ -19,6 +19,8 @@ export class LoginComponent {
   signupForm: FormGroup;
   signInBtnIsActive: boolean = false;
   message: string = 'Sign up';
+  inputPassword: string = '';
+  repeatPasswordInput: string = '';
 
   @ViewChild('switch') switchInputs!: ElementRef;
   @ViewChild('resetPasswordContainer') resetPasswordContainer!: ElementRef;
@@ -30,26 +32,29 @@ export class LoginComponent {
     this.signupForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required]),
-      repeatPassword: new FormControl('', [Validators.required]),
     });
   }
 
   onSubmit() {
-    /** check form is correct and check value of signIn button */
     if (this.signupForm.valid && this.signInBtnIsActive === false) {
-      this.userDataService.login(); /** get value from isLoggedIn variable in userDataService */
-      this.userDataService.getRoute(
-        /** navigate to landin-page component */
-        'home'
-      );
+      this.userDataService.login();
+      this.userDataService.getRoute('home');
     } else {
+    }
+  }
+
+  checkPassword() {
+    const passwordValue = this.inputPassword;
+    const repeatPasswordValue = this.repeatPasswordInput;
+
+    if (passwordValue === repeatPasswordValue) {
     }
   }
 
   /**
    * enable and disable repeatPassword input, toggle animation for inputfields, set signInBtnIsActive on true or false
    */
-  async switchToRegister() {
+  switchToRegister() {
     if (this.signInBtnIsActive == true) {
       this.animate(0, 1, 'bounce.out');
       this.signInFalse();

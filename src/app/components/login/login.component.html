@@ -19,6 +19,7 @@
         </div>
         <div class="form-floating mb-3">
           <input
+            [(ngModel)]="inputPassword"
             type="password"
             class="form-control"
             id="floatingPassword"
@@ -30,6 +31,7 @@
         </div>
         <div #switch class="form-floating d-none">
           <input
+          [(ngModel)]="repeatPasswordInput"
             *ngIf="signInBtn()"
             type="password"
             class="form-control"
@@ -42,7 +44,10 @@
         </div>
       </div>
 
-      <div #resetPasswordContainer class="d-flex justify-content-end align-items-center">
+      <div
+        #resetPasswordContainer
+        class="d-flex justify-content-end align-items-center"
+      >
         <p class="btn-reset mt-2">reset password</p>
       </div>
       <div class="w-100 d-flex justify-content-center mt-4">
