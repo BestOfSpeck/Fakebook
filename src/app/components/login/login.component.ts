@@ -56,10 +56,10 @@ export class LoginComponent {
    */
   switchToRegister() {
     if (this.signInBtnIsActive == true) {
-      this.animate(0, 1, 'bounce.out');
+      this.animate(0, 0.8, 'bounce.out');
       this.signInFalse();
     } else {
-      this.animate(-20, 1, 'expo.out');
+      this.animate(-20, 0.5, 'expo.out');
       this.signInTrue();
     }
   }
