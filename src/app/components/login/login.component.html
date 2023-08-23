@@ -3,7 +3,7 @@
     <h1>{{ message }}</h1>
     <form
       [formGroup]="signupForm"
-      class="container w-75"
+      class="container w-100"
       (ngSubmit)="onSubmit()"
     >
       <div class="input-container">
@@ -29,9 +29,9 @@
           />
           <label for="floatingPassword">Password</label>
         </div>
-        <div #switch class="form-floating d-none">
+        <div #switch id="repeatPasswordContainer" class="form-floating d-none">
           <input
-          [(ngModel)]="repeatPasswordInput"
+            [(ngModel)]="repeatPasswordInput"
             *ngIf="signInBtn()"
             type="password"
             class="form-control"
@@ -52,10 +52,10 @@
       </div>
       <div class="w-100 d-flex justify-content-center mt-4">
         <button class="btn btn-color w-100" [disabled]="!signupForm.valid">
-          Sign up
+          {{ signUpBtnText }}
         </button>
       </div>
-      <p class="text-center my-1 mt-4">or signup with</p>
+      <p class="text-center my-1 mt-4">or {{ orSignUpText }} with</p>
 
       <div class="d-flex justify-content-between align-items-center mt-4">
         <div>Google</div>
@@ -63,9 +63,10 @@
         <div>Github</div>
       </div>
     </form>
-    <div class="w-100 h-100 d-flex justify-content-center align-items-start">
-      <button (click)="switchToRegister()" class="btn btn-color w-75">
-        Sign in
+    <div class="w-100 h-100 d-flex justify-content-start align-items-center flex-column">
+      <p class="text-center">or</p>
+      <button (click)="switchToRegister()" class="btn btn-color w-100">
+        {{ signInBtnText }}
       </button>
     </div>
   </div>

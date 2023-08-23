@@ -21,6 +21,9 @@ export class LoginComponent {
   message: string = 'Sign up';
   inputPassword: string = '';
   repeatPasswordInput: string = '';
+  signInBtnText: string = 'Sign in';
+  signUpBtnText: string = 'Sign up';
+  orSignUpText: string = 'sign up';
 
   @ViewChild('switch') switchInputs!: ElementRef;
   @ViewChild('resetPasswordContainer') resetPasswordContainer!: ElementRef;
@@ -56,17 +59,25 @@ export class LoginComponent {
    */
   switchToRegister() {
     if (this.signInBtnIsActive == true) {
-      this.animate(0, 0.8, 'bounce.out');
+      this.animateY(0, 0.8, 'bounce.out', '.input-container');
       this.signInFalse();
     } else {
-      this.animate(-20, 0.5, 'expo.out');
+      this.animateY(-50, 0.5, 'expo.out', '.input-container');
+      this.animateX(-30, 1, 'expo.out', 'repeatPasswordContainer');
       this.signInTrue();
     }
   }
 
+  /**
+   *work on animation for repeat password !!!!
+   */
+
   signInFalse() {
     this.signInBtnIsActive = false;
     this.message = 'Sign up';
+    this.signInBtnText = 'Sign in';
+    this.signUpBtnText = 'Sign up';
+    this.orSignUpText = 'sign up';
     this.renderer.addClass(this.switchInputs.nativeElement, 'd-none');
     this.renderer.removeClass(
       this.resetPasswordContainer.nativeElement,
@@ -76,8 +87,11 @@ export class LoginComponent {
 
   signInTrue() {
     this.signInBtnIsActive = true;
-    this.renderer.removeClass(this.switchInputs.nativeElement, 'd-none');
     this.message = 'Sign in';
+    this.signInBtnText = 'Sign up';
+    this.signUpBtnText = 'Sign in';
+    this.orSignUpText = 'sign in';
+    this.renderer.removeClass(this.switchInputs.nativeElement, 'd-none');
     this.renderer.addClass(this.resetPasswordContainer.nativeElement, 'd-none');
   }
 
@@ -85,9 +99,17 @@ export class LoginComponent {
     return this.signInBtnIsActive;
   }
 
-  animate(y: number, duration: number, ease: string) {
-    gsap.to('.input-container', {
+  animateY(y: number, duration: number, ease: string, element: string) {
+    gsap.to(element, {
       y: y,
+      duration: duration,
+      ease: ease,
+    });
+  }
+
+  animateX(x: number, duration: number, ease: string, element: string) {
+    gsap.from(element, {
+      x: x,
       duration: duration,
       ease: ease,
     });
