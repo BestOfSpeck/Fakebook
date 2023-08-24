@@ -14,6 +14,7 @@ import {
 })
 export class RegisterComponent {
   registerForm: FormGroup;
+  imageDataUrl: string | null = null;
 
   constructor() {
     this.registerForm = new FormGroup(
@@ -34,4 +35,18 @@ export class RegisterComponent {
   };
 
   onSubmit() {}
+
+  previewImage(event: any): void {
+    const input = event.target;
+    if (input.files && input.files[0]) {
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        this.imageDataUrl = e.target.result;
+      };
+      reader.readAsDataURL(input.files[0]);
+    } else {
+      this.imageDataUrl = null;
+    }
+  }
+
 }
