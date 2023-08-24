@@ -1,0 +1,66 @@
+@import "src/colors.scss";
+@import "src/styles.scss";
+
+.center-form {
+  height: calc(100vh - 65.98px);
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .form-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 600px;
+    height: 800px;
+ 
+    background: $gray-800;
+    box-shadow: 0 8px 32px 0 $teal-600;
+    backdrop-filter: blur(17px);
+    -webkit-backdrop-filter: blur(17px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+    h1 {
+      color: $gray-100;
+      margin-bottom: 6rem;
+      text-align: center;
+    }
+
+    input {
+      background-color: $gray-900;
+      color: $gray-100;
+      font-size: 1.3rem;
+    }
+
+    label {
+      color: $gray-100;
+    }
+
+    .btn-color {
+      background-color: $gray-100;
+      color: $gray-800;
+      font-size: 1.3rem;
+
+      &:hover {
+        background-color: $gray-900;
+        color: $gray-100;
+      }
+    }
+
+    .btn-reset {
+      color: $gray-100;
+      cursor: pointer;
+      &:hover {
+        text-decoration: underline $gray-100;
+      }
+    }
+
+    p {
+      color: $gray-100;
+    }
+  }
+}
