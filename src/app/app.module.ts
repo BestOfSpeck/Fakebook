@@ -25,17 +25,15 @@ import { RegisterComponent } from './components/register/register.component';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    AngularFireModule.initializeApp(
-      {
-        apiKey: "AIzaSyC2KcrlgtmZMDBkb7XNrsDzOLmX-HBfKsA",
-        authDomain: "fakebook-143fc.firebaseapp.com",
-        projectId: "fakebook-143fc",
-        storageBucket: "fakebook-143fc.appspot.com",
-        messagingSenderId: "279753645357",
-        appId: "1:279753645357:web:afd77e5f58106d063e07a4"
-      }
-    ),
-    AngularFireAuthModule
+    AngularFireModule.initializeApp({
+      apiKey: 'AIzaSyC2KcrlgtmZMDBkb7XNrsDzOLmX-HBfKsA',
+      authDomain: 'fakebook-143fc.firebaseapp.com',
+      projectId: 'fakebook-143fc',
+      storageBucket: 'fakebook-143fc.appspot.com',
+      messagingSenderId: '279753645357',
+      appId: '1:279753645357:web:afd77e5f58106d063e07a4',
+    }),
+    AngularFireAuthModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

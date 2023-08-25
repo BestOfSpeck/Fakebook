@@ -20,10 +20,9 @@ export class LoginComponent {
       password: new FormControl('', [Validators.required]),
     });
   }
-
   onSubmit() {
     if (this.signupForm.valid) {
-      this.userDataService.login();
+      this.userDataService.handleLogin();
       this.userDataService.getRoute('home');
     } else {
     }
